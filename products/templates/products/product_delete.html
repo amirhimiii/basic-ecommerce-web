@@ -1,0 +1,11 @@
+{% extends '_base.html' %}
+{% block content %}
+<form action="" method='post'>
+    {% csrf_token %}
+    <h1>Delete View</h1>
+    <p>are you sure to want delete {{product.title}}</p>
+    <input type="submit" value='yes'>
+</form>
+
+
+{% endblock content %}

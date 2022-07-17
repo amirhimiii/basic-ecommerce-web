@@ -1,0 +1,121 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block page_title %}{% endblock page_title %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" type="image/x-icon" href={% static "assets/img/favicon.ico" %}>
+    <link rel="apple-touch-icon" href={% static "assets/img/icon.png" %}>
+
+    <link rel='stylesheet' href={% static 'assets/css/styles.css' %}>
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href={% static "assets/css/vendor.css" %}>
+
+    <!-- style css -->
+    <link rel="stylesheet" href={% static "assets/css/main.css" %}>
+
+    <link rel="stylesheet" href={% static "assets/css/_base.css" %}>
+    
+
+
+</head>
+<body dir="rtl">
+
+    <!-- Preloader End -->
+
+    <!-- Main Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Start -->
+        <header class="header">
+            <div class="header-inner fixed-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9 col-lg-8 col-5 col-xs-0 col-none col-sm-block p-0">
+                            <nav class="main-navigation">
+                                <div class="site-branding" style="margin-right: 30px;">
+                                    <a href="index.html" class="logo">
+
+                                    </a>
+                                </div>
+                                <div class="mainmenu-nav d-none d-lg-block w-100 pr-3">
+                                    <ul class="mainmenu d-lg-flex jusity-content-end jusity-content-lg-start pt-4">
+                                        <li class="mainmenu__item menu-item-has-children active">
+                                            <a href="{% url 'product-list' %}" class="mainmenu__link">
+                                                <span class="mm-text">خانه</span>
+                                            </a>
+                                        </li>
+                                        <li class="mainmenu__item menu-item-has-children">
+                                            <a href={% url 'product-create' %} class="mainmenu__link">
+                                                <span class="mm-text">اضافه کردن محصول</span>
+                                            </a>
+                                        </li>
+                                        <li class="mainmenu__item menu-item-has-children">
+                                            <a href="{% url 'order-summary' %}" class="mainmenu__link">
+                                                <span class="mm-text">سبد خرید</span>
+                                            </a>
+                                         </li>
+                                         <li class="mainmenu__item menu-item-has-children">
+                                            {% if user.is_authenticated %}
+                                            <a href="{% url 'account_logout' %}" class="mainmenu__link">
+                                                <span class="mm-text">خروج</span></a>
+                                            {% else %}
+                                            <a href="{% url 'account_signup' %}"> ثبت نام |<a href="{% url 'account_login' %}" class="mainmenu__link">ورود
+                                            {% endif %}
+                                            </a>
+                                        </li>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mobile-menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+    {% block content %}
+    {% endblock content %}
+
+
+<!-- Footer Start-->
+<footer class="footer">
+    <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 text-center">
+                    <div class="footer-widget mb--50">
+
+                    </div>
+                    <div class="footer-widget mb--50 pb--1">
+                        <ul class="footer-menu">
+                            <li><a href="{% url 'contact-us' %}">تماس با ما</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-widget">
+                        Amirstore © | all rights reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer End-->
+
+
+
+<script src={% static "assets/js/vendor.js" %}></script>
+<script src={% static "assets/js/main.js" %}></script>
+
+</html>
