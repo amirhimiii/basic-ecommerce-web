@@ -1,0 +1,8 @@
+{
+    "disks": [
+      {
+        "name": "django-basic",
+        "mountTo": "media"
+      }
+    ]
+  }
